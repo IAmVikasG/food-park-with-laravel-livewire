@@ -5,7 +5,6 @@ namespace App\Livewire\Backend\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 
 #[Layout('layouts.guest')]
@@ -18,7 +17,7 @@ class Login extends Component
 
     protected $rules = [
         'email' => 'required|email',
-        'password' => 'required|min:6',
+        'password' => 'required',
     ];
 
     public function postLogin()
@@ -30,6 +29,13 @@ class Login extends Component
         }
 
         $this->addError('email', 'Invalid email or password.');
+    }
+
+    public function mount()
+    {
+        if (Auth::check()) {
+            return $this->redirectRoute('admin.dashboard');
+        }
     }
 
     public function render()
