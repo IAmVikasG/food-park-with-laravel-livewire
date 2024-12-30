@@ -1,4 +1,5 @@
 <script src="{{ asset('admin_assets') }}/modules/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-2.1.8/date-1.5.4/fc-5.0.4/r-3.0.3/rr-1.5.0/sl-2.1.0/datatables.min.js"></script>
 <script src="{{ asset('admin_assets') }}/modules/popper.js"></script>
 <script src="{{ asset('admin_assets') }}/modules/tooltip.js"></script>
 <script src="{{ asset('admin_assets') }}/modules/bootstrap/js/bootstrap.min.js"></script>

@@ -13,7 +13,7 @@ class Logout extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        return $this->redirectRoute('admin.login');
+        return $this->redirectRoute('admin.login', navigate: true);
     }
 
     public function render()

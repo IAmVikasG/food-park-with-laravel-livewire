@@ -19,12 +19,13 @@ class RoleMiddleware
     {
         try {
             $roleEnum = UserRole::from($role);
+
         } catch (\ValueError $e) {
             abort(403, 'Invalid role provided.');
         }
 
         if (!Auth::check() || !Auth::user()->hasRole($roleEnum)) {
-            return redirect()->back();
+            return redirect('/');
         }
         return $next($request);
     }

@@ -25,7 +25,7 @@ class Login extends Component
         $validatedData = $this->validate();
 
         if (Auth::attempt($validatedData, $this->rememberMe)) {
-            return $this->redirectRoute('admin.dashboard');
+            return $this->redirectRoute('admin.dashboard', navigate: true);
         }
 
         $this->addError('email', 'Invalid email or password.');
@@ -34,7 +34,7 @@ class Login extends Component
     public function mount()
     {
         if (Auth::check()) {
-            return $this->redirectRoute('admin.dashboard');
+            return $this->redirectRoute('admin.dashboard', navigate: true);
         }
     }
 
