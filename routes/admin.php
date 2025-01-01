@@ -19,6 +19,17 @@ Route::middleware(\App\Http\Middleware\RoleMiddleware::class.':admin')->group(fu
         });
     });
 
+    // Category Routes
+    Route::prefix('categories')->name('categories.')->group(function () {
+        Route::get('/', \App\Livewire\Backend\Category\Index::class)->name('list');
+        Route::get('create', \App\Livewire\Backend\Category\Create::class)->name('create');
+        Route::get('{categoryId}/edit', \App\Livewire\Backend\Category\Create::class)->name('edit');
+        // DataTable Route
+        Route::prefix('dataTable')->group(function () {
+            Route::post('/', \App\Actions\Category\CategoryTable::class)->name('data');
+        });
+    });
+
 
 
 });

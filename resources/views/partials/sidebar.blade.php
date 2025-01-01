@@ -29,6 +29,25 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="dropdown {{ Request::is('admin/categories*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Categories</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('admin/categories/create') ? 'active' : '' }}">
+                        <a class="nav-link" href="/admin/categories/create" wire:navigate>
+                            Create Category
+                        </a>
+                    </li>
+                    <li class="{{ Request::is('admin/categories') ? 'active' : '' }}">
+                        <a class="nav-link" href="/admin/categories" wire:navigate>
+                            List Category
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>

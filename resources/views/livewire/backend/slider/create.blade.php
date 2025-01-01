@@ -132,9 +132,12 @@
                 </div>
 
               <!-- Submit Button -->
-              <button type="submit" wire:loading.attr="disabled" class="btn btn-primary">
-                    {{ $isEditMode ? 'Update' : 'Create' }} Slider
-                </button>
+              <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">
+                        <span wire:loading wire:target="save" class="spinner-border spinner-border-sm mr-1"></span>
+                        {{ $isEditMode ? 'Update' : 'Create' }} Slider
+                    </button>
+                </div>
             </div>
           </form>
         </div>
