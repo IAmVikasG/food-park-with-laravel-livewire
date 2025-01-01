@@ -127,44 +127,28 @@
 
                     <!-- Image Upload -->
                     <div class="form-group">
-                        <label for="image">Category Image</label>
-                        <div class="custom-file">
-                            <input
-                                type="file"
-                                wire:model="image"
-                                class="custom-file-input @error('image') is-invalid @enderror"
-                                id="image"
-                                accept="image/*"
-                            >
-                            <label class="custom-file-label" for="image">
-                                {{ $image ? $image->getClientOriginalName() : 'Choose file' }}
-                            </label>
+                    <label for="image">Category Image</label>
+
+                    @if($isEditMode && $existingImage && !$image)
+                        <div class="mb-3">
+                            <img src="{{ $existingImage->getUrl() }}" alt="Current Image" class="img-thumbnail" width="200">
+                            <button type="button" class="btn btn-danger btn-sm ml-2" wire:click="deleteImage">
+                                Delete Image
+                            </button>
                         </div>
+                    @endif
 
-                        @if($isEditMode && $existingImage && !$image)
-                            <div class="mt-3 position-relative">
-                                <img src="{{ $existingImage->getUrl() }}" alt="Current Image" class="img-thumbnail" style="max-width: 200px">
-                                <button
-                                    type="button"
-                                    class="btn btn-danger btn-sm position-absolute"
-                                    style="top: 5px; right: 5px"
-                                    wire:click="deleteImage"
-                                >
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        @endif
+                    <input wire:model.lazy="image" type="file" id="image"
+                        class="form-control @error('image') is-invalid @enderror">
 
-                        @if($image)
-                            <div class="mt-3">
-                                <img src="{{ $image->temporaryUrl() }}" alt="Preview" class="img-thumbnail" style="max-width: 200px">
-                            </div>
-                        @endif
+                    @if (!$isEditMode && $image)
+                        <img src="{{ $image->temporaryUrl() }}" alt="Preview" class="img-thumbnail mt-2" width="200">
+                    @endif
 
-                        @error('image')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
                     <!-- SEO Information -->
                     <div class="form-group">
