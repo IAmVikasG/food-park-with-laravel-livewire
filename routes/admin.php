@@ -30,6 +30,16 @@ Route::middleware(\App\Http\Middleware\RoleMiddleware::class.':admin')->group(fu
         });
     });
 
+    // Product Routes
+    Route::prefix('products')->name('products.')->group(function () {
+        Route::get('/', \App\Livewire\Backend\Product\Index::class)->name('list');
+        Route::get('create', \App\Livewire\Backend\Product\Create::class)->name('create');
+        Route::get('{productId}/edit', \App\Livewire\Backend\Product\Create::class)->name('edit');
+        // DataTable Route
+        Route::prefix('dataTable')->group(function () {
+            Route::post('/', \App\Actions\Product\ProductTable::class)->name('data');
+        });
+    });
 
 
 });

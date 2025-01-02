@@ -5,6 +5,7 @@ use App\Livewire\Backend\Dashboard;
 use App\Models\User;
 use Livewire\Livewire;
 
+pest()->group('dashboard');
 
 it('middleware_allows_access_for_correct_role', function () {
     $admin = User::factory()->admin()->create();

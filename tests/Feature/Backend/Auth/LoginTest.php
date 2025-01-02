@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Livewire\Livewire;
 
+pest()->group('auth');
+
 beforeEach(function () {
     $this->user = User::factory()->create([
         'email' => 'admin@example.com',
