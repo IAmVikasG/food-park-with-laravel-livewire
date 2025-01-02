@@ -16,58 +16,55 @@ class CategorySeeder extends Seeder
         // Product Categories - Real Data
         $productCategories = [
             [
-                'name' => 'Electronics',
-                'slug' => 'electronics',
+                'name' => 'Pizzas',
+                'slug' => 'pizzas',
                 'type' => 'product',
-                'description' => 'All electronic devices and accessories',
-                'meta_title' => 'Electronics - Shop the Latest Devices',
-                'meta_description' => 'Explore our wide range of electronics including smartphones, laptops, and accessories',
+                'description' => 'Our handcrafted pizzas made with fresh ingredients',
+                'meta_title' => 'Pizzas - Handcrafted Pies Made with Fresh Ingredients',
+                'meta_description' => 'Explore our wide range of handcrafted pizzas made with fresh ingredients, perfect for any occasion',
                 'is_active' => true,
                 'sort_order' => 1,
             ],
             [
-                'name' => 'Smartphones',
-                'slug' => 'smartphones',
+                'name' => 'Pastas',
+                'slug' => 'pastas',
                 'type' => 'product',
-                'description' => 'Latest smartphones from top brands',
-                'parent_id' => 1, // Will reference Electronics
-                'meta_title' => 'Smartphones - Latest Models',
-                'meta_description' => 'Browse the latest smartphones from Apple, Samsung, and more',
-                'is_active' => true,
-                'sort_order' => 1,
-            ],
-            [
-                'name' => 'Laptops',
-                'slug' => 'laptops',
-                'type' => 'product',
-                'description' => 'Professional and gaming laptops',
-                'parent_id' => 1, // Will reference Electronics
-                'meta_title' => 'Laptops - Gaming & Professional',
-                'meta_description' => 'Find the perfect laptop for work or gaming',
+                'description' => 'Authentic Italian pasta dishes',
+                'meta_title' => 'Pastas - Authentic Italian Pasta Dishes',
+                'meta_description' => 'Discover our authentic Italian pasta dishes, crafted with love and care to transport you to Italy',
                 'is_active' => true,
                 'sort_order' => 2,
             ],
             [
-                'name' => 'Fashion',
-                'slug' => 'fashion',
+                'name' => 'Salads',
+                'slug' => 'salads',
                 'type' => 'product',
-                'description' => 'Clothing, shoes, and accessories',
-                'meta_title' => 'Fashion - Latest Trends',
-                'meta_description' => 'Discover the latest fashion trends and styles',
+                'description' => 'Fresh and healthy salad options',
+                'meta_title' => 'Salads - Fresh and Healthy Options for a Light Meal',
+                'meta_description' => 'Enjoy our fresh and healthy salad options, perfect for a light and refreshing meal',
                 'is_active' => true,
-                'sort_order' => 2,
+                'sort_order' => 3,
             ],
             [
-                'name' => "Men's Wear",
-                'slug' => 'mens-wear',
+                'name' => 'Beverages',
+                'slug' => 'beverages',
                 'type' => 'product',
-                'description' => 'Clothing and accessories for men',
-                'parent_id' => 4, // Will reference Fashion
-                'meta_title' => "Men's Fashion Collection",
-                'meta_description' => 'Explore our collection of men\'s clothing and accessories',
+                'description' => 'Refreshing drinks and sodas',
+                'meta_title' => 'Beverages - Refreshing Drinks and Sodas',
+                'meta_description' => 'Quench your thirst with our refreshing drinks and sodas, perfect for any occasion',
                 'is_active' => true,
-                'sort_order' => 1,
-            ]
+                'sort_order' => 4,
+            ],
+            [
+                'name' => 'Desserts',
+                'slug' => 'desserts',
+                'type' => 'product',
+                'description' => 'Sweet treats to complete your meal',
+                'meta_title' => 'Desserts - Sweet Treats to Complete Your Meal',
+                'meta_description' => 'Indulge in our sweet treats, perfect for completing your meal and satisfying your sweet tooth',
+                'is_active' => true,
+                'sort_order' => 5,
+            ],
         ];
 
         // Blog Categories - Real Data
@@ -110,7 +107,8 @@ class CategorySeeder extends Seeder
         }
 
         // Generate dummy data using factory
-        Category::factory()->count(3)->create(['type' => 'product']);
-        Category::factory()->count(3)->create(['type' => 'blog']);
+        
+        // Category::factory()->count(3)->create(['type' => 'product']);
+        // Category::factory()->count(3)->create(['type' => 'blog']);
     }
 }
