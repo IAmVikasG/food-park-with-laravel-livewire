@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SliderSeeder::class,
             CategorySeeder::class,
-            ProductSeeder::class,
-            VariantTypeSeeder::class,
+            FoodOrderSeeder::class,
+            ProductImagesSeeder::class
         ]);
     }
 }

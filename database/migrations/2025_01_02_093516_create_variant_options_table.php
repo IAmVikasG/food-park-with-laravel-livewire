@@ -13,8 +13,11 @@ return new class extends Migration
     {
         Schema::create('variant_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('variant_type_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('name', 50);
+            $table->foreignId('product_variant_id')->constrained()->onDelete('cascade');
+            $table->string('name', 50); // e.g., "Small", "Medium", "Large"
+            $table->decimal('price_adjustment', 10, 2)->default(0.00);
+            $table->integer('stock')->default(0);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('variant_option_id')->constrained()->onDelete('cascade');
-            $table->decimal('price_adjustment', 10, 2)->default(0.00);
-            $table->boolean('is_default')->default(false);
+            $table->string('name', 50); // e.g., "Size", "Spice Level"
+            $table->string('type', 20); // e.g., "single_select", "multi_select"
+            $table->boolean('required')->default(false);
+            $table->integer('max_choices')->default(1);
             $table->timestamps();
         });
     }
